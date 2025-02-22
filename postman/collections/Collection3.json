@@ -18,7 +18,12 @@
 							"console.log(jsonBody.username);\r",
 							"pm.environment.set(\"username\", jsonBody.username);\r",
 							"console.log(jsonBody.password);\r",
-							"pm.environment.set(\"password\", jsonBody.password);"
+							"pm.environment.set(\"password\", jsonBody.password);\r",
+							"\r",
+							"let moment = require(\"moment\");\r",
+							"console.log(moment(\"2010-10-20 4:30\", \"YYYY-MM-DD HH-mm\"));\r",
+							"let ourDate = moment(\"2010-10-20 4:30\").format(\"YYYY-MM-DD HH-mm LL\");\r",
+							"console.log(ourDate)"
 						],
 						"type": "text/javascript",
 						"packages": {}
