@@ -1,0 +1,212 @@
+{
+	"info": {
+		"_postman_id": "2135d239-0772-4151-8c12-ae2fbbea005d",
+		"name": "Collection3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "40916907-2135d239-0772-4151-8c12-ae2fbbea005d"
+	},
+	"item": [
+		{
+			"name": "Register Random",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c6f2bbb6-7b58-4ca2-a3ee-e593d29f8ed4",
+						"exec": [
+							"let jsonBody = JSON.parse(pm.request.body);\r",
+							"console.log(jsonBody.username);\r",
+							"pm.environment.set(\"username\", jsonBody.username);\r",
+							"console.log(jsonBody.password);\r",
+							"pm.environment.set(\"password\", jsonBody.password);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e87886f0-1132-438f-958c-75d2f0ad4ef0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "e0e8952c-91b6-420e-ad58-98d775ac7c04",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"{{$randomUserName}}\",\r\n  \"password\": \"{{$randomPassword}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://study-plan-it-switcher.glitch.me/register",
+					"protocol": "https",
+					"host": [
+						"study-plan-it-switcher",
+						"glitch",
+						"me"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Random",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "81829686-69a0-48c3-a8a4-1ee3ccb3b986",
+						"exec": [
+							"/*let jsonBody1 = JSON.parse(pm.response.body);*/\r",
+							"\r",
+							"console.log(pm.response.body);\r",
+							"pm.environment.set(\"token\", pm.response.body);\r",
+							"\r",
+							"/*pm.collectionVariables.set(\"token\", jsonBody1);*/\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "bc193b08-8572-4d8d-ab09-f98b32a06d89",
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "8012047d-ded6-4d8f-baba-fe383852057b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://study-plan-it-switcher.glitch.me/login",
+					"protocol": "https",
+					"host": [
+						"study-plan-it-switcher",
+						"glitch",
+						"me"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get users random",
+			"id": "92c06a7f-dbad-4f01-9cea-967578a764c0",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://study-plan-it-switcher.glitch.me/users?username={{username}}&password={{password}}",
+					"protocol": "https",
+					"host": [
+						"study-plan-it-switcher",
+						"glitch",
+						"me"
+					],
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "{{username}}"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1haXlhX0xlZ3Jvczg5IiwiaWF0IjoxNzM4ODk4MTUyfQ.j23EquM3VUSwRDVtyWTZ7LmFNa0nEzejJcKZ_Kbl6Nc",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "76dba057-be60-40cc-b145-e6e5fe3bceb8",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "b86f59cc-e758-41e2-85c3-78c8846918dd",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
