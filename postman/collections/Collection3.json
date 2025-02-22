@@ -75,7 +75,7 @@
 					"script": {
 						"id": "81829686-69a0-48c3-a8a4-1ee3ccb3b986",
 						"exec": [
-							"/*let jsonBody1 = JSON.parse(pm.response.body);*/\r",
+							"\r",
 							"\r",
 							"console.log(pm.response.body);\r",
 							"pm.environment.set(\"token\", pm.response.body);\r",
